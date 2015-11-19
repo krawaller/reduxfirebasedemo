@@ -1,0 +1,130 @@
+.bodywrapper {
+	margin-top: 5px;
+}
+
+.chatpanel, .twitterfeed {
+	margin-top: 5px;
+}
+
+header .logo {
+	height: 40px;
+}
+
+.mainnav {
+	float: left;
+	width: 200px;
+}
+
+.center {
+	float: left;
+}
+
+.rightpanel {
+	float: right;
+	width: 300px;
+}
+
+
+.moodcount {
+	display: block;
+	font-size: 0.7em;
+}
+
+.moodmeter button {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.moodmeter {
+	float: right;
+}
+
+.authpanel {
+	font-size: 0.85em;
+}
+
+
+header {
+	padding: 5px;
+	background-color: #E6E6E6;
+}
+
+header > * {
+	display: inline-block;
+}
+
+header h2 {
+	margin: 0;
+	margin-right: 1em;
+}
+
+
+
+body {
+	font: normal normal normal 12px/16px "Helvetica Neue",Roboto,"Segoe UI",Calibri,sans-serif;
+}
+
+a {
+	color: #1b95e0;
+}
+
+
+.currentvote {
+    background-color: gold;
+}
+
+
+
+
+/******************************* TWEETS ***********************************/
+
+.singletweet .user img {
+	display: none; /* easier...*/
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 48px;
+	height: 48px;
+	background: #fff;
+	border-radius: 4px;
+}
+
+p.timePosted {
+    position: absolute;
+    top: 0;
+    right: 3px;
+}
+
+.user > a > span:nth-child(2) > span {
+	color: #292f33;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.singletweet a {
+	color: #1b95e0;
+}
+
+.singletweet {
+    padding: 12px 12px 0 12px; /* last needs to be 60 if we use twitter img */
+    border-width: 0 0 1px;
+    /*border: 1px solid #e8e8e8;*/
+    position: relative;
+    font: normal normal normal 12px/16px "Helvetica Neue",Roboto,"Segoe UI",Calibri,sans-serif;
+    text-decoration: none;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-transform: none;
+    vertical-align: baseline;
+    list-style: none;
+    margin-bottom: -1px;
+    overflow: scroll;
+}
+
+.singletweet .user a {
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-decoration: none;
+}
