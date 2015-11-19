@@ -35,7 +35,7 @@ var Quoteslist = React.createClass({
 				<input ref="newquote" placeholder="write something clever!"/>
 				<button type="submit" disabled={p.quotes.submittingnew}>{p.quotes.submittingnew ? "Submitting..." : "Submit"}</button>
 			</form> : <p>Log in to add a new quote of your own!</p>}
-			{rows}
+			{p.quotes.hasreceiveddata ? rows : "Loading quotes..."}
 		</div>);
 	}
 });
