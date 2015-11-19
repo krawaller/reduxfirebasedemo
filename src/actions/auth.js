@@ -14,10 +14,11 @@ module.exports = {
 		return function(dispatch,getState){
 			fireRef.onAuth(function(authData){
 				if (authData){ 
+					console.log("LOGGED IN",authData)
 					dispatch({
 						type: C.LOGIN_USER,
 						uid: authData.uid,
-						username: authData.github.displayName
+						username: authData.github.username
 					});
 				} else {
 					if (getState().auth.currently !== C.ANONYMOUS){ // log out if not already logged out
