@@ -18,7 +18,7 @@ module.exports = {
 					dispatch({
 						type: C.LOGIN_USER,
 						uid: authData.uid,
-						username: authData.github.username
+						username: authData.github.displayName || authData.github.username
 					});
 				} else {
 					if (getState().auth.currently !== C.ANONYMOUS){ // log out if not already logged out
