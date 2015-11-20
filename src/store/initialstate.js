@@ -7,9 +7,10 @@ var C = require("../constants");
 
 module.exports = {
 	feedback: [
-		{msg:"Welcome to this little demo! Wee!",error:false},
-		{msg:"We have cookies!",error:false},
-		{msg:"Also poop.",error:false}
+		{msg:"Welcome to this little demo! It is meant to demonstrate three things:",error:false},
+		{msg:"1) How to use Redux + Firebase",error:false},
+		{msg:"2) How to use authentication in a Redux app",error:false},
+		{msg:"3) How to have all UI state in Redux and none in the components",error:false}
 	],
 	auth: {
 		currently: C.ANONYMOUS,
@@ -19,7 +20,7 @@ module.exports = {
 	quotes: {
 		hasreceiveddata: false,
 		submittingnew: false,
-		states: {}, // this will store per quote id if we're editing or awaiting DB response
+		states: {}, // this will store per quote id if we're reading, editing or awaiting DB response
 		data: {} // this will contain firebase data
 	}
 };

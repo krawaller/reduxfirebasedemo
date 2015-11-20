@@ -11,12 +11,10 @@ var Wrapper = React.createClass({
     render: function() {
         return (
             <div className="wrapper">
-                <div className="bodywrapper">
-                    <Authpanel />
-                    <div className="center">
-                        <Feedbackpanel />
-                        {this.props.children}
-                    </div>
+                <Authpanel />
+                <div className="center">
+                    <Feedbackpanel />
+                    {this.props.children}
                 </div>
             </div>
         );

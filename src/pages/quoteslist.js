@@ -9,10 +9,9 @@ var React = require("react"),
 var Quoteslist = React.createClass({
 	newQuote: function(e){
 		if (!this.props.quotes.submitting){
-			var content = this.refs.newquote.value || "<unintelligeble whisper>";
-			this.refs.newquote.value = '';
 			e.preventDefault();
-			this.props.submitNewQuote(content);
+			this.props.submitNewQuote(this.refs.newquote.value);
+			this.refs.newquote.value = '';
 		}
 	},
 	render: function(){
@@ -31,7 +30,7 @@ var Quoteslist = React.createClass({
 			/>;
 		}).reverse();
 		return (<div className="quoteslist">
-			{p.auth.uid ? <form onSubmit={this.newQuote}>
+			{p.auth.uid ? <form className="newquoteform" onSubmit={this.newQuote}>
 				<input ref="newquote" placeholder="write something clever!"/>
 				<button type="submit" disabled={p.quotes.submittingnew}>{p.quotes.submittingnew ? "Submitting..." : "Submit"}</button>
 			</form> : <p>Log in to add a new quote of your own!</p>}
@@ -42,10 +41,10 @@ var Quoteslist = React.createClass({
 
 // now we connect the component to the Redux store:
 
-var mapStateToProps = function(appstate){
+var mapStateToProps = function(appState){
 	return {
-		quotes: appstate.quotes,
-		auth: appstate.auth
+		quotes: appState.quotes,
+		auth: appState.auth
 	};
 };
 

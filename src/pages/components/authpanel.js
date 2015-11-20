@@ -22,18 +22,18 @@ var Authpanel = React.createClass({
 		switch(auth.currently){
 			case C.LOGGED_IN: return (
 				<div className="authpanel">
-					<span>Inloggad som {auth.username}.</span><br/>
-					<button onClick={p.logoutUser}>Logga ut</button>
+					<span>Logged in as {auth.username}.</span>
+					{' '}<button onClick={p.logoutUser}>Log out</button>
 				</div>
 			);
 			case C.AWAITING_AUTH_RESPONSE: return (
 				<div className="authpanel">
-					<button disabled><i className="fa fa-spinner fa-spin"></i> kollar...</button>
+					<button disabled><i className="fa fa-spinner fa-spin"></i> authenticating...</button>
 				</div>
 			);
 			default: return (
 				<div className="authpanel">
-					<button onClick={p.attemptLogin}>Logga in</button>
+					<button onClick={p.attemptLogin}>Log in</button>
 				</div>
 			);
 		}
@@ -42,9 +42,9 @@ var Authpanel = React.createClass({
 
 // now we connect the component to the Redux store:
 
-var mapStateToProps = function(state){
+var mapStateToProps = function(appState){
 	// This component will have access to `appState.auth` through `this.props.auth`
-	return {auth:state.auth};
+	return {auth:appState.auth};
 };
 
 var mapDispatchToProps = function(dispatch){

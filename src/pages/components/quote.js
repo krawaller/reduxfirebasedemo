@@ -15,10 +15,10 @@ var Quote = React.createClass({
 			q = p.quote,
 			button;
 		if (p.state === C.EDITING_QUOTE){
-			return (<form onSubmit={this.submit}>
+			return (<form className="quote" onSubmit={this.submit}>
 				<input ref="field" defaultValue={q.content}/>
-				<button onClick={p.cancel}>Cancel</button>
-				<button type="submit">Submit</button>
+				<button type="button" onClick={p.cancel}>Cancel</button>
+				<button type="submit" onClick={this.submit}>Submit</button>
 			</form>);
 		}
 		if (!p.mayedit){
@@ -28,7 +28,7 @@ var Quote = React.createClass({
 		} else {
 			button = <span><button onClick={p.edit}>Edit</button><button onClick={p.delete}>Delete</button></span>;
 		}
-		return <div>{q.username+" said: "+q.content} {button}</div>;
+		return <div className="quote">{q.username+" said: "+q.content} {button}</div>;
 	}
 });
 

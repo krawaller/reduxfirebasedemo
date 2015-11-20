@@ -26,9 +26,9 @@ var Feedbackpanel = React.createClass({
 
 // now we connect the component to the Redux store:
 
-var mapStateToProps = function(appstate){
+var mapStateToProps = function(appState){
 	// This component will have access to `appState.feedback` through `this.props.feedback`
-	return {feedback:appstate.feedback};
+	return {feedback:appState.feedback};
 };
 
 var mapDispatchToProps = function(dispatch){

@@ -20,7 +20,7 @@ ReactDOM.render(
 	document.getElementById("root")
 );
 
-// setup listeners
+// setup Firebase listeners
 setTimeout(function(){
 	store.dispatch( actions.startListeningToAuth() );
 	store.dispatch( actions.startListeningToQuotes() );

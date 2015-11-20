@@ -1,8 +1,7 @@
 module.exports = {
 	validateQuote: function(content){
-		content = content || "";
-		if (content.length<10){
-			return "Ett citat måste ha MINST 10 tecken för att vara värt att dela med omvärlden!";
+		if (!content || content.length < 10){
+			return "A quote needs at least 10 characters to be worthy of sharing with the world!";
 		}
 	} 
 };

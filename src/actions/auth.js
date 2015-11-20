@@ -1,7 +1,5 @@
 /*
 This module contains action creators dealing with `appState.auth`
-They are functions which will return an object describing the actions.
-These actions are imported by Redux-aware components who need them, in our case it is just Home.
 */
 
 var C = require("../constants"),
@@ -14,7 +12,6 @@ module.exports = {
 		return function(dispatch,getState){
 			fireRef.onAuth(function(authData){
 				if (authData){ 
-					console.log("LOGGED IN",authData)
 					dispatch({
 						type: C.LOGIN_USER,
 						uid: authData.uid,
@@ -28,7 +25,6 @@ module.exports = {
 			});
 		}
 	},
-	// called when user clicks the "login" button
 	attemptLogin: function(){
 		return function(dispatch,getState){
 			dispatch({type:C.ATTEMPTING_LOGIN});
