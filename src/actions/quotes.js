@@ -1,7 +1,6 @@
 /*
-This module contains action creators dealing with `appState.auth`
+This module contains action creators dealing with `appState.quotes`
 They are functions which will return an object describing the actions.
-These actions are imported by Redux-aware components who need them, in our case it is just Home.
 */
 
 var C = require("../constants"),
