@@ -35,3 +35,8 @@ input {
 .feedback.error {
 	background-color: #E6C8C9;
 }
+
+.author {
+	font-size: 0.85em;
+	color: #555;
+}

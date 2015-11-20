@@ -30,7 +30,9 @@ module.exports = {
 			quotesRef.child(qid).remove(function(error){
 				dispatch({type:C.FINISH_QUOTE_EDIT,qid});
 				if (error){
-					dispatch({type:C.DISPLAY_ERROR,error});
+					dispatch({type:C.DISPLAY_ERROR,error:"Deletion failed! "+error});
+				} else {
+					dispatch({type:C.DISPLAY_MESSAGE,message:"Quote successfully deleted!"});
 				}
 			});
 		};
@@ -48,7 +50,9 @@ module.exports = {
 				quotesRef.child(qid).set({content,username,uid},function(error){
 					dispatch({type:C.FINISH_QUOTE_EDIT,qid});
 					if (error){
-						dispatch({type:C.DISPLAY_ERROR,error});
+						dispatch({type:C.DISPLAY_ERROR,error:"Update failed! "+error});
+					} else {
+						dispatch({type:C.DISPLAY_MESSAGE,message:"Update successfully saved!"});
 					}
 				});
 			}
@@ -67,7 +71,9 @@ module.exports = {
 				quotesRef.push({content,username,uid},function(error){
 					dispatch({type:C.RECEIVE_NEW_QUOTE_RESPONSE});
 					if (error){
-						dispatch({type:C.DISPLAY_ERROR,error});
+						dispatch({type:C.DISPLAY_ERROR,error:"Submission failed! "+error});
+					} else {
+						dispatch({type:C.DISPLAY_MESSAGE,message:"Submission successfully saved!"});
 					}
 				});
 			}
