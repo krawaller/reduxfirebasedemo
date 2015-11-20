@@ -8,7 +8,8 @@
 		"redux-thunk": "=1.0.0",
 		"browserify": "=12.0.1",
 		"reactify": "=1.1.1",
-		"firebase": "=2.3.1"
+		"firebase": "=2.3.1",
+		"lodash": "=3.10.1"
 	},
 	"scripts": {
 		"build": "browserify --debug -t [reactify --es6] src/index.js > bundle.js"

@@ -6,7 +6,8 @@ These actions are imported by Redux-aware components who need them, in our case 
 
 var C = require("../constants"),
 	Firebase = require("firebase"),
-	quotesRef = new Firebase(C.FIREBASE).child("quotes");
+	quotesRef = new Firebase(C.FIREBASE).child("quotes"),
+	utils = require("../utils");
 
 module.exports = {
 	// called when the app starts. this means we immediately download all quotes, and 
@@ -39,28 +40,38 @@ module.exports = {
 		return function(dispatch,getState){
 			var state = getState(),
 				username = state.auth.username,
-				uid = state.auth.uid;
-			dispatch({type:C.SUBMIT_QUOTE_EDIT,qid});
-			quotesRef.child(qid).set({content,username,uid},function(error){
-				dispatch({type:C.FINISH_QUOTE_EDIT,qid});
-				if (error){
-					dispatch({type:C.DISPLAY_ERROR,error});
-				}
-			});
+				uid = state.auth.uid,
+				error = utils.validateQuote(content);
+			if (error){
+				dispatch({type:C.DISPLAY_ERROR,error});
+			} else {
+				dispatch({type:C.SUBMIT_QUOTE_EDIT,qid});
+				quotesRef.child(qid).set({content,username,uid},function(error){
+					dispatch({type:C.FINISH_QUOTE_EDIT,qid});
+					if (error){
+						dispatch({type:C.DISPLAY_ERROR,error});
+					}
+				});
+			}
 		};
 	},
 	submitNewQuote: function(content){
 		return function(dispatch,getState){
 			var state = getState(),
 				username = state.auth.username,
-				uid = state.auth.uid;
-			dispatch({type:C.AWAIT_NEW_QUOTE_RESPONSE});
-			quotesRef.push({content,username,uid},function(error){
-				dispatch({type:C.RECEIVE_NEW_QUOTE_RESPONSE});
-				if (error){
-					dispatch({type:C.DISPLAY_ERROR,error});
-				}
-			});
+				uid = state.auth.uid,
+				error = utils.validateQuote(content);
+			if (error){
+				dispatch({type:C.DISPLAY_ERROR,error});
+			} else {
+				dispatch({type:C.AWAIT_NEW_QUOTE_RESPONSE});
+				quotesRef.push({content,username,uid},function(error){
+					dispatch({type:C.RECEIVE_NEW_QUOTE_RESPONSE});
+					if (error){
+						dispatch({type:C.DISPLAY_ERROR,error});
+					}
+				});
+			}
 		}
 	}
 };
