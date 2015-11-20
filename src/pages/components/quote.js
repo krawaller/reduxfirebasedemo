@@ -1,5 +1,4 @@
 var React = require("react"),
-	ptypes = React.PropTypes,
 	C = require("../../constants");
 
 var Quote = React.createClass({

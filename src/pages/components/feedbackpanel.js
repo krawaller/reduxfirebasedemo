@@ -1,16 +1,9 @@
 var React = require("react"),
-	ptypes = React.PropTypes,
 	ReactRedux = require("react-redux"),
 	actions = require("../../actions"),
 	C = require("../../constants");
 
 var Feedbackpanel = React.createClass({
-	propTypes: {
-		// redux store state, imported below
-		feedback: ptypes.arrayOf(ptypes.object).isRequired,
-		// redux action hookups, set up below
-		dismissFeedback: ptypes.func.isRequired
-	},
 	render: function(){
 		var p = this.props, rows = p.feedback.map(function(f,n){
 			return (<div key={n} className={"feedback"+(f.error?" error":"")}>

@@ -1,22 +1,10 @@
 var React = require("react"),
-	ptypes = React.PropTypes,
 	ReactRedux = require("react-redux"),
 	actions = require("../../actions"),
 	C = require("../../constants"),
 	Link = require("react-router").Link;
 
 var Authpanel = React.createClass({
-	propTypes: {
-		// redux store state, imported below
-		auth: ptypes.shape({ 
-			currently: ptypes.oneOf([C.LOGGED_IN,C.ANONYMOUS,C.AWAITING_AUTH_RESPONSE]).isRequired,
-			uid: ptypes.oneOfType([ptypes.string,ptypes.null]),
-			username: ptypes.oneOfType([ptypes.string,ptypes.null])
-		}).isRequired,
-		// redux action hookups, set up below
-		attemptLogin: ptypes.func.isRequired,
-		logoutUser: ptypes.func.isRequired
-	},
 	render: function(){
 		var p = this.props, auth = p.auth;
 		switch(auth.currently){

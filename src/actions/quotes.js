@@ -1,6 +1,5 @@
 /*
 This module contains action creators dealing with `appState.quotes`
-They are functions which will return an object describing the actions.
 */
 
 var C = require("../constants"),
