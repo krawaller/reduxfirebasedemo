@@ -13,7 +13,7 @@ var React = require('react'),
 
 ReactDOM.render(
 	// The top-level Provider is what allows us to `connect` components to the store
-	// using ReactRedux.connect (see components Home and Hero)
+	// using ReactRedux.connect
 	<Provider store={store}>
 		<Router routes={routes}/>
 	</Provider>,
